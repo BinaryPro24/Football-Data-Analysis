@@ -29,7 +29,7 @@ Three factors driving the decline:
 
 ## Methodology
 - Loaded raw CSV data directly from GitHub using Pandas
-- Performed exploratory data analysis — shape, nulls, descriptive statistics
+- Performed exploratory data analysis; shape, nulls, descriptive statistics
 - Created a new `total_goals` column by combining home and away scores
 - Grouped matches by decade and calculated mean home win rate per decade
 - Visualised trend using Matplotlib
