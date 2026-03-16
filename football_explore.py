@@ -1,4 +1,6 @@
 import pandas as pd
+import matplotlib.pyplot as plt
+
 
 # Load dataset from GitHub — 208,028 matches, 21 columns
 # Each row = one match, each column = one attribute (team, score, result etc)
@@ -36,3 +38,25 @@ print("\n--- WIN RATE BY HOME vs AWAY ---")
 print(f"Home wins: {df['home_team_win'].mean()*100:.1f}%")
 print(f"Away wins: {df['away_team_win'].mean()*100:.1f}%")
 print(f"Draws: {df['draw'].mean()*100:.1f}%")
+
+# Group matches by decade and calculate home win rate per decade
+df['decade'] = (df['season'] // 10) * 10
+home_win_by_decade = df.groupby('decade')['home_team_win'].mean() * 100
+
+# Plot home advantage trend across decades
+
+# Key finding: home advantage has declined significantly since the 1990s
+# Hypothesis: Premier League commercialisation priced out loyal fans,
+# reducing home atmosphere and intimidation factor for away teams
+
+plt.figure(figsize=(12, 6))
+plt.plot(home_win_by_decade.index, home_win_by_decade.values, marker='o', linewidth=2, color='royalblue')
+plt.axhline(y=50, color='red', linestyle='--', label='50% baseline')
+plt.title('Home Advantage in English Football by Decade (1888-2023)')
+plt.xlabel('Decade')
+plt.ylabel('Home Win Rate (%)')
+plt.legend()
+plt.grid(True)
+plt.tight_layout()
+plt.savefig('home_advantage_by_decade.png')
+plt.show()
