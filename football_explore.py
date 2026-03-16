@@ -1,9 +1,10 @@
 import pandas as pd
 
+# Load dataset from GitHub — 208,028 matches, 21 columns
+# Each row = one match, each column = one attribute (team, score, result etc)
 url = "https://raw.githubusercontent.com/jfjelstul/englishfootball/master/data-csv/matches.csv"
 df = pd.read_csv(url)
-# Goes to the URL and reads the CSV file into a DataFrame, df
-# Df: table with rows & columns, every football match is one row
+
 
 print(df.shape) # Dimensions of the dataset table
 print(df.head()) # First 5 rows of the dataset
@@ -29,6 +30,8 @@ print(df[['season', 'home_team_name', 'away_team_name', 'score', 'total_goals']]
     .sort_values('total_goals', ascending=False)
     .head(10))
 
+# mean() on a binary column (1s and 0s) returns the proportion of 1s
+# multiply by 100 to convert to percentage
 print("\n--- WIN RATE BY HOME vs AWAY ---")
 print(f"Home wins: {df['home_team_win'].mean()*100:.1f}%")
 print(f"Away wins: {df['away_team_win'].mean()*100:.1f}%")
