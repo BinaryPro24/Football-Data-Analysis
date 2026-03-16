@@ -8,7 +8,7 @@ across 208,028 matches.
 ## Key Finding
 ![Home Advantage by Decade](home_advantage_by_decade.png)
 
-Home win rates have been in persistent decline since the 1960s — no recovery, 
+Home win rates have been in persistent decline since the 1960s. No recovery, 
 no plateau, just a continuous drop. The 1992 Premier League era appears to be 
 the critical inflection point.
 
